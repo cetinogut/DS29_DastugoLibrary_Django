@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Dastugo Local Library Home</h1>
+  <p>Welcome to LocalLibrary, a website developed by <em>Dastugo Software</em>!</p>
+
+  <div>
+    {% load static %}
+    <img src="{% static 'images/dastugo_local_library_model_uml.svg' %}" alt="My image" style="width:755px;height:540px;"/>
+  </div>  
+    
+  <h2>Dynamic content</h2>
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>B Genres:</strong> {{ num_genres_B }}</li>
+    
+  </ul>
+  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+  
+{% endblock %}

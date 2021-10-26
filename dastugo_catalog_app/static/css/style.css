@@ -1,0 +1,15 @@
+body {
+    background-color: wheat;
+}
+
+h1{
+    font-size: 3rem;
+    color: darkolivegreen;
+    
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
