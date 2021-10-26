@@ -147,3 +147,16 @@ class AuthorUpdate(UpdateView):
 class AuthorDelete(DeleteView):
     model = Author
     success_url = reverse_lazy('authors') # on delete redirect to authors list
+    
+class BookCreate(CreateView):
+    model = Book
+    fields = ['title', 'author', 'summary', 'isbn', 'genre', 'language', 'cover_pic']
+    initial = {'genre': 'Literature & Fiction'}
+
+class BookUpdate(UpdateView):
+    model = Book
+    fields = '__all__' # Not recommended (potential security issue if more fields added)
+
+class BookDelete(DeleteView):
+    model = Book
+    success_url = reverse_lazy('books') # on delete redirect to authors list
