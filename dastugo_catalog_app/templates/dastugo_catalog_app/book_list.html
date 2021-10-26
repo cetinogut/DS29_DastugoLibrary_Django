@@ -7,6 +7,16 @@
     {% for book in book_list %}
       <li>
         <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> (<a href="{{ book.author.get_absolute_url }}"> {{ book.author }}</a> ) ({{book.author}})
+
+        {% if user.is_staff %}
+          <a href="{% url 'book-update' book.id %}" class="btn">
+            <i class="far fa-edit"></i>
+          </a>
+          <a href="{% url 'book-delete' book.id %}" class="btn">
+              <!-- <button><i class="far fa-trash-alt text-danger"></i></button> -->
+              <i class="far fa-trash-alt text-danger"></i>
+          </a>
+         {% endif %}
       </li>
     {% endfor %}
   </ul>

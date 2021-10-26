@@ -12,9 +12,17 @@
       <a href="{{ author.get_absolute_url }}">
       {{ author }} ({{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %})
       </a>
+      {% if user.is_staff %}
+        <a href="{% url 'author-update' author.id %}" class="btn">
+          <i class="far fa-edit"></i>
+        </a>
+        <a href="{% url 'author-delete' author.id %}" class="btn">
+            <!-- <button><i class="far fa-trash-alt text-danger"></i></button> -->
+            <i class="far fa-trash-alt text-danger"></i>
+        </a>
+       {% endif %}
     </li>
   {% endfor %}
-
  </ul>
 {% else %}
   <p>There are no authors available.</p>
