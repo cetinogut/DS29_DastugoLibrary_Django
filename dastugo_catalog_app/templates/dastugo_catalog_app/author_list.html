@@ -1,8 +1,22 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+<div class="row">
+  <div>
+    <h1>Author List</h1> 
+  </div>  
+  <div>
+    {% if user.is_staff %}
+      <a href="{% url 'author-create' %}">
+        <button class="btn btn-outline-success"><i class="fas fa-plus text-success"></i> Add New Author</button>
+      </a>
 
-<h1>Author List</h1>
+    {% endif %}
+
+  </div>
+</div>
+
+
 
 {% if author_list %}
   <ul>

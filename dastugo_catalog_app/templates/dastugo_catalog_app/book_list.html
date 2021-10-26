@@ -1,7 +1,21 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Dastugo Library Book List</h1>
+  
+  <div class="row">
+    <div>
+      <h1>Dastugo Library Book List</h1> 
+    </div>  
+    <div>
+      {% if user.is_staff %}
+        <a href="{% url 'book-create' %}">
+          <button class="btn btn-outline-success"><i class="fas fa-plus text-success"></i> Add New Author</button>
+        </a>
+  
+      {% endif %}
+  
+    </div>
+  </div>
   {% if book_list %}
   <ul>
     {% for book in book_list %}
